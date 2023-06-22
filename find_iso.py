@@ -22,6 +22,8 @@ def return_iso(file: str,
     percent = 100-np.cumsum(sorted_data)/np.sum(sorted_data)*100
     #get the last value 
     iso_ind = np.where(percent>thres)[0][-1]
+    if not density:
+        return np.sqrt(sorted_data[iso_ind])
     return sorted_data[iso_ind]
 
 #Gaussian prints out numbers below precision
